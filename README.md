@@ -1,5 +1,5 @@
 上下滑动TableView时让Navigation渐变，并且让headerView中的图片也跟着拖动放大
-
+![baidu](http://www.baidu.com/img/bdlogo.gif "百度logo") 
 使用方法:
     
     //init headview
