@@ -1,7 +1,7 @@
 上下滑动TableView时让Navigation渐变，并且让headerView中的图片也跟着拖动放大
 
 使用方法:
-//init headview
+    //init headview
     _header = [[WSHeaderView alloc]init];
     
     //set header view
