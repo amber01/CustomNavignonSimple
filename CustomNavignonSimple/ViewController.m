@@ -10,12 +10,12 @@
 #import "WSHeaderView.h"
 
 
-@interface ViewController ()
+@interface ViewController ()<WSHeaderViewDelegate>
 
 @end
 
 @implementation ViewController{
-    WSHeaderView *_header;
+    WSHeaderView *header;
     __weak UIImageView *_expandView;
 }
 
@@ -26,25 +26,17 @@
 
 - (void)createdTabelView
 {
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    [self.view addSubview:_tableView];
-    
-    //init headview
-    _header = [[WSHeaderView alloc]init];
-    
     //set header view
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 263)];
     [imageView setImage:[UIImage imageNamed:@"mengyin"]];
-    _header = [WSHeaderView expandWithScrollView:_tableView expandView:imageView];
-    
-    //set navigation view
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width , 64)];
-    view.backgroundColor = [UIColor clearColor];
-    UIColor *color = [UIColor colorWithRed:250/255.0 green:250/255.0 blue:250/255.0 alpha:1];
-    view = [_header setupNavigationColor:color withTitle:@"detaile"];
-    [self.view addSubview:view];
+    header = [[WSHeaderView alloc]initWithTableViewWithHeaderImage:imageView.image withOTCoverHeight:imageView.frame.size.height withTableviewIsStyleGrouped:NO];
+    header.delegate = self;
+    header.title = @"detail";
+    header.tableView.dataSource = self;
+    header.tableView.delegate = self;
+    header.tableView.separatorColor = [UIColor clearColor];
+    header.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:header];
 }
 
 - (void)viewWillAppear:(BOOL)animated

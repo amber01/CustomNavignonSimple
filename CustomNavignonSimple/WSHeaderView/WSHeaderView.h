@@ -8,20 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+@protocol WSHeaderViewDelegate <NSObject>
+@optional
+-(void)changNaviBtnColorToWhite;
+-(void)changNaviBtnColorToOther;
+@end
 
-@interface WSHeaderView : NSObject <UIScrollViewDelegate>
-{
-    UIScrollView   *_scrollView;
-    UIView         *_expandView;
-    
-    UIView         *_navView;
-    UIView         *_lineView;
-    UILabel        *_titleLabel;
-    UIView         *_backView;
-    UIButton       *_backBtn;
-}
+@interface WSHeaderView : UIView
+@property (nonatomic, retain) UITableView *tableView;
+@property (nonatomic, retain) UIImageView *headerImageView;
+@property (nonatomic, retain) UIView *naviView;
+@property (nonatomic, copy)   NSString  *title;
 
-+ (id)expandWithScrollView:(UIScrollView*)scrollView expandView:(UIView*)expandView;
-- (UIView *)setupNavigationColor:(UIColor *)color withTitle:(NSString *)titleStr;
-
+@property (nonatomic, weak) id <WSHeaderViewDelegate> delegate;
+- (WSHeaderView*)initWithTableViewWithHeaderImage:(UIImage*)headerImage withOTCoverHeight:(CGFloat)height withTableviewIsStyleGrouped:(BOOL)isStyleGrouped;
 @end
