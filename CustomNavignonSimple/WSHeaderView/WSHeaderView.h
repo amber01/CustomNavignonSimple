@@ -18,8 +18,7 @@
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) UIImageView *headerImageView;
 @property (nonatomic, retain) UIView *naviView;
-@property (nonatomic, copy)   NSString  *title;
 
 @property (nonatomic, weak) id <WSHeaderViewDelegate> delegate;
-- (WSHeaderView*)initWithTableViewWithHeaderImage:(UIImage*)headerImage withOTCoverHeight:(CGFloat)height withTableviewIsStyleGrouped:(BOOL)isStyleGrouped;
+- (WSHeaderView*)initWithTableViewWithHeaderImage:(UIImage*)headerImage withOTCoverHeight:(CGFloat)height withTableviewIsStyleGrouped:(BOOL)isStyleGrouped withTitle:(NSString *)title;
 @end

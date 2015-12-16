@@ -20,7 +20,7 @@
     UILabel *titleLabel;
 }
 
-- (WSHeaderView*)initWithTableViewWithHeaderImage:(UIImage*)headerImage withOTCoverHeight:(CGFloat)height withTableviewIsStyleGrouped:(BOOL)isStyleGrouped{
+- (WSHeaderView*)initWithTableViewWithHeaderImage:(UIImage*)headerImage withOTCoverHeight:(CGFloat)height withTableviewIsStyleGrouped:(BOOL)isStyleGrouped withTitle:(NSString *)title{
     CGRect bounds = [[UIScreen mainScreen] bounds];
     self = [[WSHeaderView alloc] initWithFrame:bounds];
     self.headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, bounds.size.width, height)];
@@ -47,7 +47,7 @@
     [_naviView addSubview:_lineView];
     
     titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 30, self.frame.size.width, 20)];
-    titleLabel.text = self.title;
+    titleLabel.text = title;
     titleLabel.textColor = [UIColor blackColor];
     titleLabel.font = [UIFont systemFontOfSize:19];
     titleLabel.textAlignment = NSTextAlignmentCenter;

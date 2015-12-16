@@ -29,9 +29,8 @@
     //set header view
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 263)];
     [imageView setImage:[UIImage imageNamed:@"mengyin"]];
-    header = [[WSHeaderView alloc]initWithTableViewWithHeaderImage:imageView.image withOTCoverHeight:imageView.frame.size.height withTableviewIsStyleGrouped:NO];
+    header = [[WSHeaderView alloc]initWithTableViewWithHeaderImage:imageView.image withOTCoverHeight:imageView.frame.size.height withTableviewIsStyleGrouped:NO withTitle:@"detail"];
     header.delegate = self;
-    header.title = @"detail";
     header.tableView.dataSource = self;
     header.tableView.delegate = self;
     header.tableView.separatorColor = [UIColor clearColor];
